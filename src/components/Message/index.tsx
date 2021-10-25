@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { MotiView } from 'moti';
 import { View, Text } from 'react-native';
 import { UserPhoto } from '../UserPhoto';
 import { styles } from './styles';
@@ -19,7 +19,12 @@ type Props = {
 
 export function Message({ data }: Props){
   return (
-    <View style={styles.container}>
+    <MotiView 
+      style={styles.container}
+      from={{ opacity: 0, translateY: -50}}
+      animate={{ opacity: 1, translateY: 0 }}
+      transition={{ type: 'timing', duration: 700 }}
+      >
         <Text style={styles.message}>
           {data.text}
         </Text>
@@ -35,6 +40,6 @@ export function Message({ data }: Props){
           </Text>
         </View>
 
-    </View>
+    </MotiView>
   );
 }
